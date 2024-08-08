@@ -1,16 +1,13 @@
 # TPC-H Benchmark helper for MySQL and MariaDB
 
 
-The scripts hosted below are for implementing the TPC-H database, sample data and queries to MySQL and MariaDB Databases under Linux.
+The scripts hosted below are for implementing the TPC-H database, sample data and queries to PostgreSql Database under Linux.
 TPC-H is a benchmark for Decision support made available by the Transaction Processing Performance Council (TPC). 
 ALL the necessary specifications and documentation for setting up the TPC-H database, generating data and queries are available on the [TPC Website (tpc.org)](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp).
-The generated items are SQL compliant and can be ported to all major relational databases. While the system can generate data for major databases, support for MYSQL and MariaDB shall benefit from further documentation.
-This work is based on [
-Catarina Ribeiro's port to MySQL ](https://github.com/catarinaribeir0/queries-tpch-dbgen-mysql). The previous work dates back to 2016, which used version 2.16 of TPC-H and was meant mainly for Windows-based machines.Because Linux systems are more strict with case sensitivity of characters, the existing SQL queries available do not work under Linux.
-This work reviewed the SQL queries and created a script to make the task easier. The script is only a helper to create the empty database structure,primary and foreign keys and import the generated data into a database.  All credits to the original author and the TPC team for making these tools available. Please consult the official documentation of TPC-H version 3.0.0 (published 18 February 2021).
+The generated items are SQL compliant and can be ported to all major relational databases. While the system can generate data for major databases, support for PostgreSql shall benefit from further documentation.
 
 
-Implementation of TPC-H schema into MySQL and MariaDB. 
+Implementation of TPC-H schema into PostgreSql. 
 
 [Visit the Downloads page of TPC and download the latest version of TPC-H](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp)  
 
@@ -84,7 +81,7 @@ ls -l *.tbl
 
 Clone the tpch folder from this git repository. Inside the dbgen folder in shell type the code below.
 ```
-git clone https://github.com/dhuny/tpch.git
+https://github.com/WandersonSoares00/tpch.git
 ``` 
  
 A new folder labelled tpch and contains 2 scripts required inside dbgen for execution. move them with the codes below 
@@ -93,23 +90,23 @@ mv ./tpch/import* tpch/tpch_* ./
 ``` 
 Make sure that the codes are in dbgen folder. Then set the file to execution mode with chmod
 ```
-chmod +x import_TPCH_to_MariaDB.sh
-chmod +x import_TPCH_to_MariaDB_with_view.sh
+chmod +x import_TPCH_to_postgresql.sh
+chmod +x import_TPCH_to_postgresql_with_view.sh
 ``` 
 
-To execute the import_TPCH_to_MariaDB.sh, you will need the full administrative privileges of a database user. This is usually root access. On Shell type the following command.
+To execute the import_TPCH_to_postgresql.sh, you will need the full administrative privileges of a database user. This is usually root access. On Shell type the following command.
 ```
-./import_TPCH_to_MariaDB.sh root 
+./import_TPCH_to_postgresql.sh root 
 ```
-The previous command, when executed on a Raspberry Pi 5 with an SF 1 takes more than 1 hours 20 minutes to complete. In the event that the database does not have a view similar to revenue15 in the database, the last part of the following script can be executed import_TPCH_to_MariaDB_with_view.sh. The 'with view' command will create the necessary view for query 15. Used in test cases where the driver cannot run the Create View followed by a select from View in one operation set.
+In the event that the database does not have a view similar to revenue15 in the database, the last part of the following script can be executed import_TPCH_to_postgresql_with_view.sh. The 'with view' command will create the necessary view for query 15. Used in test cases where the driver cannot run the Create View followed by a select from View in one operation set.
 ```
-echo $(date +%s%3N) && ./import_TPCH_to_MariaDB_with_view.sh root && echo $(date +%s%3N)
+echo $(date +%s%3N) && ./import_TPCH_to_postgresql_with_view.sh root && echo $(date +%s%3N)
 ```
 The system will ask for the database password for root or the selected admin user. Once provided, the system will import the data into the database.
-The import_TPCH_to_MariaDB.sh  is simply executing the tpch_to_mariadb.sql script. In case the script does not work, The files can be manually edited to meet the requirements of the server 
+The import_TPCH_to_postgresql.sh  is simply executing the tpch_to_postgresql.sql script. In case the script does not work, The files can be manually edited to meet the requirements of the server 
 
-Once the make file is executed, TPC-H creates a folder in dbgen labelled queries that contains 22 queries for use to test the database. The queries require formatting for execution in MySQL and MariaDB.
-The GitHub repository has a folder labelled sample queries that contain sample queries similar to the 22 generated ones. Users may refer to them to adapt their generated queries from the dbgen/queries folder for MySQL and MariaDB.
+Once the make file is executed, TPC-H creates a folder in dbgen labelled queries that contains 22 queries for use to test the database. The queries require formatting for execution in PostgreSql.
+The GitHub repository has a folder labelled sample queries that contain sample queries similar to the 22 generated ones. Users may refer to them to adapt their generated queries from the dbgen/queries folder for PostgreSql.
 
 
 All information related to TPC & TPC-H are available on the website tpc.org and in the official documentation of TPC-H.
