@@ -1,34 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.8.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Feb 22, 2022 at 07:09 AM
--- Server version: 5.7.24
--- PHP Version: 7.1.26
+BEGIN;
+SET TIME ZONE '+00:00';
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+\c tpch;
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `tpch`
---
-
-use tpch;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`, `O_ORDERDATE`, `O_ORDERPRIORITY`, `O_CLERK`, `O_SHIPPRIORITY`, `O_COMMENT`) VALUES
+INSERT INTO orders (o_orderkey, o_custkey, o_orderstatus, o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_shippriority, o_comment) VALUES
 (9, 12658, 'O', '129872.68', '1998-07-06', '4-NOT SPECIFIED', 'Clerk#000000248', 0, ' blithely final packages cajole. regular waters are final requests. regular ac'),
 (10, 38197, 'O', '130153.51', '1996-09-10', '1-URGENT', 'Clerk#000000145', 0, 'ironic, even requests'),
 (11, 101651, 'F', '295927.93', '1993-06-15', '4-NOT SPECIFIED', 'Clerk#000000408', 0, ' quickly. slyly even '),
@@ -405,8 +380,7 @@ INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`
 (1486, 21806, 'O', '200146.00', '1998-07-25', '5-LOW', 'Clerk#000000627', 0, 'lithely ironic pinto beans. deposits nod carefully. quickly final foxes bo'),
 (1487, 41503, 'F', '175145.82', '1993-07-20', '3-MEDIUM', 'Clerk#000000563', 0, 'oost deposits. silently ironic foxes cajole at the quiet asymptotes. flu'),
 (1512, 14047, 'O', '103735.07', '1996-10-18', '3-MEDIUM', 'Clerk#000000619', 0, ' requests cajole alongside of the fur'),
-(1513, 134602, 'O', '93901.59', '1997-12-16', '5-LOW', 'Clerk#000000992', 0, 'slowly according to the fu');
-INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`, `O_ORDERDATE`, `O_ORDERPRIORITY`, `O_CLERK`, `O_SHIPPRIORITY`, `O_COMMENT`) VALUES
+(1513, 134602, 'O', '93901.59', '1997-12-16', '5-LOW', 'Clerk#000000992', 0, 'slowly according to the fu'),
 (1514, 81076, 'O', '49508.39', '1996-10-28', '1-URGENT', 'Clerk#000000122', 0, 'press pinto beans cajole. blithely express asymptotes haggle slyly after th'),
 (1515, 24491, 'F', '20267.55', '1992-01-04', '3-MEDIUM', 'Clerk#000000771', 0, 'requests. quickly regular requests should have '),
 (1516, 4883, 'O', '307914.68', '1996-03-09', '2-HIGH', 'Clerk#000000351', 0, 'ouches. slyly even ideas along the slyly final pi'),
@@ -785,8 +759,7 @@ INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`
 (3017, 87053, 'O', '129858.17', '1995-08-16', '4-NOT SPECIFIED', 'Clerk#000000834', 0, 'ccounts. slyly unusual excuses around the fluffily final requests doz'),
 (3018, 147002, 'F', '49590.30', '1993-09-09', '4-NOT SPECIFIED', 'Clerk#000000209', 0, 'ions. regular requests integrate. blithely ironic pinto b'),
 (3019, 10196, 'F', '6392.48', '1993-10-24', '2-HIGH', 'Clerk#000000199', 0, ' of the blithely express deposits'),
-(3020, 54863, 'O', '228398.04', '1998-01-01', '3-MEDIUM', 'Clerk#000000741', 0, 'y even requests. carefully final foxes about the e');
-INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`, `O_ORDERDATE`, `O_ORDERPRIORITY`, `O_CLERK`, `O_SHIPPRIORITY`, `O_COMMENT`) VALUES
+(3020, 54863, 'O', '228398.04', '1998-01-01', '3-MEDIUM', 'Clerk#000000741', 0, 'y even requests. carefully final foxes about the e'),
 (3021, 29234, 'F', '36401.62', '1994-08-23', '1-URGENT', 'Clerk#000000577', 0, 'ular excuses snooze slyly among the fluffily special excuses. slyly even reque'),
 (3022, 78367, 'F', '113115.17', '1992-04-19', '3-MEDIUM', 'Clerk#000000788', 0, 's boost finally. even, ironic pinto beans nod alongside of th'),
 (3023, 88777, 'O', '195185.95', '1998-07-02', '4-NOT SPECIFIED', 'Clerk#000000311', 0, 'ar, special deposits sleep a'),
@@ -1538,8 +1511,8 @@ COMMIT;
 --
 -- Dumping data for table `lineitem`
 --
-
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+BEGIN;
+INSERT INTO lineitem (l_orderkey, l_partkey, l_sppkey, l_linenumber, l_quantity, l_extendedprice , l_discount, l_tax, l_returnflag, l_linestatus, l_shipdate, l_commitdate, l_receiptdate, l_shipinstruct, l_shipmode, l_comment) VALUES
 (9, 127857, 5394, 1, '45.00', '84818.25', '0.09', '0.05', 'N', 'O', '1998-10-20', '1998-09-10', '1998-11-15', 'COLLECT COD', 'SHIP', 'es haggle blithely above the silent ac'),
 (9, 92115, 9643, 2, '47.00', '52034.17', '0.08', '0.02', 'N', 'O', '1998-09-08', '1998-08-31', '1998-09-15', 'COLLECT COD', 'AIR', 'counts. furio'),
 (10, 183288, 843, 1, '13.00', '17826.64', '0.01', '0.07', 'N', 'O', '1996-10-29', '1996-11-29', '1996-10-31', 'DELIVER IN PERSON', 'AIR', 'ackages haggle slyly. bold, exp'),
@@ -1841,8 +1814,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (297, 110686, 5709, 3, '47.00', '79743.96', '0.07', '0.00', 'N', 'O', '1995-11-04', '1995-10-26', '1995-11-13', 'TAKE BACK RETURN', 'AIR', 'above the fin'),
 (298, 142004, 2005, 1, '21.00', '21966.00', '0.06', '0.05', 'A', 'F', '1994-11-29', '1994-12-08', '1994-12-18', 'TAKE BACK RETURN', 'TRUCK', 'slyly. accounts haggle according to'),
 (298, 52601, 2602, 2, '6.00', '9321.60', '0.02', '0.02', 'A', 'F', '1994-09-18', '1994-10-21', '1994-10-18', 'DELIVER IN PERSON', 'REG AIR', 'oss the quickly ironic p'),
-(298, 50609, 8125, 3, '14.00', '21834.40', '0.07', '0.00', 'A', 'F', '1994-11-21', '1994-12-03', '1994-12-17', 'TAKE BACK RETURN', 'RAIL', 'xcuses are slyly agai');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(298, 50609, 8125, 3, '14.00', '21834.40', '0.07', '0.00', 'A', 'F', '1994-11-21', '1994-12-03', '1994-12-17', 'TAKE BACK RETURN', 'RAIL', 'xcuses are slyly agai'),
 (298, 180496, 8051, 4, '30.00', '47294.70', '0.09', '0.02', 'A', 'F', '1994-10-09', '1994-11-24', '1994-10-27', 'TAKE BACK RETURN', 'RAIL', 'nd the bold, even instructions. regular'),
 (298, 190788, 3308, 5, '45.00', '84545.10', '0.05', '0.05', 'A', 'F', '1994-11-03', '1994-11-07', '1994-11-21', 'NONE', 'SHIP', 'posits. final, express ideas around the ev'),
 (299, 95788, 3316, 1, '14.00', '24972.92', '0.03', '0.03', 'R', 'F', '1994-02-10', '1994-02-02', '1994-02-17', 'DELIVER IN PERSON', 'TRUCK', 'onic, even ide'),
@@ -2143,8 +2115,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (622, 185287, 324, 4, '31.00', '42540.68', '0.00', '0.07', 'N', 'O', '1997-08-14', '1997-08-09', '1997-09-04', 'TAKE BACK RETURN', 'TRUCK', 's ironic reques'),
 (622, 102901, 2902, 5, '19.00', '36174.10', '0.03', '0.01', 'N', 'O', '1997-07-23', '1997-08-02', '1997-08-03', 'TAKE BACK RETURN', 'TRUCK', 'carefully unusual a'),
 (623, 2392, 2393, 1, '39.00', '50481.21', '0.00', '0.04', 'A', 'F', '1995-04-02', '1995-05-29', '1995-04-04', 'TAKE BACK RETURN', 'AIR', 'ajole slowly among the carefully final fox'),
-(623, 194888, 7408, 2, '42.00', '83280.96', '0.10', '0.04', 'N', 'O', '1995-06-19', '1995-05-02', '1995-07-15', 'COLLECT COD', 'FOB', ' theodolites. slyl');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(623, 194888, 7408, 2, '42.00', '83280.96', '0.10', '0.04', 'N', 'O', '1995-06-19', '1995-05-02', '1995-07-15', 'COLLECT COD', 'FOB', ' theodolites. slyl'),
 (648, 66613, 9120, 1, '6.00', '9477.66', '0.08', '0.01', 'N', 'O', '1997-02-14', '1997-01-30', '1997-02-21', 'TAKE BACK RETURN', 'MAIL', 'ts. fluffily thin r'),
 (648, 156878, 6879, 2, '46.00', '89004.02', '0.03', '0.05', 'N', 'O', '1997-04-01', '1997-03-04', '1997-04-04', 'DELIVER IN PERSON', 'RAIL', 'sleep slyly! carefully ironic asymptote'),
 (648, 37255, 4765, 3, '17.00', '20268.25', '0.04', '0.07', 'N', 'O', '1997-01-23', '1997-01-12', '1997-02-13', 'TAKE BACK RETURN', 'REG AIR', ', express packages grow over '),
@@ -2446,8 +2417,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (941, 13173, 5675, 4, '1.00', '1086.17', '0.06', '0.07', 'R', 'F', '1994-08-18', '1994-07-05', '1994-09-03', 'DELIVER IN PERSON', 'AIR', 'final, unusual packages are quickl'),
 (941, 190204, 2724, 5, '11.00', '14236.20', '0.08', '0.05', 'R', 'F', '1994-05-14', '1994-07-06', '1994-05-21', 'NONE', 'TRUCK', 'hely express accoun'),
 (941, 146408, 1437, 6, '25.00', '36360.00', '0.03', '0.04', 'A', 'F', '1994-06-03', '1994-06-10', '1994-06-11', 'TAKE BACK RETURN', 'TRUCK', 'fully pending packages wake quickly.'),
-(941, 78485, 3500, 7, '1.00', '1463.48', '0.00', '0.07', 'A', 'F', '1994-07-23', '1994-06-09', '1994-08-04', 'COLLECT COD', 'REG AIR', 'ual grouches. slyly final deposits boo');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(941, 78485, 3500, 7, '1.00', '1463.48', '0.00', '0.07', 'A', 'F', '1994-07-23', '1994-06-09', '1994-08-04', 'COLLECT COD', 'REG AIR', 'ual grouches. slyly final deposits boo'),
 (942, 87285, 4810, 1, '50.00', '63614.00', '0.00', '0.05', 'A', 'F', '1993-04-23', '1993-06-13', '1993-04-30', 'COLLECT COD', 'MAIL', 'special accounts. fu'),
 (942, 192674, 2675, 2, '42.00', '74200.14', '0.01', '0.01', 'R', 'F', '1993-07-19', '1993-04-30', '1993-07-20', 'TAKE BACK RETURN', 'RAIL', ' the accounts. ca'),
 (942, 62159, 7172, 3, '16.00', '17938.40', '0.10', '0.03', 'A', 'F', '1993-04-18', '1993-04-27', '1993-05-10', 'TAKE BACK RETURN', 'REG AIR', 'nal foxes thrash quickly carefully final id'),
@@ -2746,8 +2716,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (1230, 96272, 3800, 4, '4.00', '5073.08', '0.05', '0.00', 'N', 'O', '1998-08-30', '1998-06-10', '1998-09-20', 'TAKE BACK RETURN', 'SHIP', 'quests sleep pending accounts. excuses'),
 (1231, 14476, 6978, 1, '23.00', '31980.81', '0.10', '0.06', 'R', 'F', '1993-06-01', '1993-07-04', '1993-06-16', 'TAKE BACK RETURN', 'AIR', 'sly careful'),
 (1231, 93926, 6436, 2, '29.00', '55677.68', '0.01', '0.02', 'R', 'F', '1993-05-09', '1993-07-19', '1993-05-24', 'TAKE BACK RETURN', 'TRUCK', 'ages. slyly express packages across'),
-(1256, 41688, 4193, 1, '17.00', '27704.56', '0.07', '0.05', 'N', 'O', '1997-06-19', '1997-05-15', '1997-07-19', 'TAKE BACK RETURN', 'REG AIR', ' detect carefully toward the bold ac');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(1256, 41688, 4193, 1, '17.00', '27704.56', '0.07', '0.05', 'N', 'O', '1997-06-19', '1997-05-15', '1997-07-19', 'TAKE BACK RETURN', 'REG AIR', ' detect carefully toward the bold ac'),
 (1256, 37813, 5323, 2, '11.00', '19258.91', '0.00', '0.00', 'N', 'O', '1997-03-15', '1997-05-16', '1997-03-29', 'TAKE BACK RETURN', 'REG AIR', 'tructions snoo'),
 (1256, 109211, 4232, 3, '19.00', '23183.99', '0.09', '0.01', 'N', 'O', '1997-05-31', '1997-04-17', '1997-06-04', 'DELIVER IN PERSON', 'REG AIR', ' alongside of the slyly '),
 (1256, 102381, 9912, 4, '48.00', '66402.24', '0.05', '0.04', 'N', 'O', '1997-06-05', '1997-04-30', '1997-06-12', 'COLLECT COD', 'RAIL', '. furiously qu'),
@@ -3046,8 +3015,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (1545, 60493, 8012, 1, '3.00', '4360.47', '0.02', '0.00', 'R', 'F', '1994-05-11', '1994-06-19', '1994-06-01', 'NONE', 'TRUCK', 'usly final deposits. '),
 (1545, 100152, 7683, 2, '4.00', '4608.60', '0.04', '0.05', 'A', 'F', '1994-05-08', '1994-06-11', '1994-05-16', 'DELIVER IN PERSON', 'MAIL', 'he final packages. blithely unusual '),
 (1545, 44315, 1828, 3, '9.00', '11333.79', '0.01', '0.04', 'R', 'F', '1994-07-21', '1994-07-21', '1994-07-25', 'TAKE BACK RETURN', 'FOB', 'arefully. unusual p'),
-(1545, 190391, 5430, 4, '12.00', '17776.68', '0.03', '0.01', 'R', 'F', '1994-06-12', '1994-06-26', '1994-07-11', 'DELIVER IN PERSON', 'AIR', 'are furiously. blithely regular requests ag');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(1545, 190391, 5430, 4, '12.00', '17776.68', '0.03', '0.01', 'R', 'F', '1994-06-12', '1994-06-26', '1994-07-11', 'DELIVER IN PERSON', 'AIR', 'are furiously. blithely regular requests ag'),
 (1545, 87780, 2797, 5, '29.00', '51265.62', '0.09', '0.02', 'R', 'F', '1994-08-15', '1994-06-06', '1994-09-01', 'COLLECT COD', 'TRUCK', ' carefully ironic dol'),
 (1546, 158576, 3607, 1, '7.00', '11441.99', '0.04', '0.02', 'A', 'F', '1992-06-15', '1992-07-11', '1992-07-10', 'NONE', 'AIR', ' requests. ironic theodolit'),
 (1546, 174213, 9248, 2, '21.00', '27031.41', '0.08', '0.03', 'A', 'F', '1992-05-19', '1992-08-06', '1992-05-21', 'DELIVER IN PERSON', 'RAIL', 'ckages through the fluffily'),
@@ -3347,8 +3315,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (1868, 108895, 3916, 5, '35.00', '66636.15', '0.06', '0.03', 'R', 'F', '1994-03-07', '1994-04-24', '1994-03-25', 'COLLECT COD', 'RAIL', 'ly regular pinto beans. furiously ironic '),
 (1868, 189372, 9373, 6, '9.00', '13152.33', '0.02', '0.06', 'A', 'F', '1994-04-05', '1994-05-11', '1994-04-16', 'TAKE BACK RETURN', 'AIR', ' nag blithely after the qui'),
 (1868, 168197, 3230, 7, '11.00', '13917.09', '0.07', '0.01', 'A', 'F', '1994-05-18', '1994-04-13', '1994-06-14', 'TAKE BACK RETURN', 'FOB', 'e bold requests solve about the slyly iron'),
-(1869, 74735, 9750, 1, '18.00', '30775.14', '0.03', '0.06', 'R', 'F', '1992-11-28', '1992-12-15', '1992-12-13', 'TAKE BACK RETURN', 'TRUCK', 'gular, ironic deposi');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(1869, 74735, 9750, 1, '18.00', '30775.14', '0.03', '0.06', 'R', 'F', '1992-11-28', '1992-12-15', '1992-12-13', 'TAKE BACK RETURN', 'TRUCK', 'gular, ironic deposi'),
 (1869, 55390, 401, 2, '37.00', '49779.43', '0.07', '0.08', 'A', 'F', '1993-01-28', '1992-11-24', '1993-02-08', 'NONE', 'REG AIR', 'al deposits! quickly unusual ideas nag flu'),
 (1870, 192569, 5089, 1, '48.00', '79754.88', '0.05', '0.07', 'A', 'F', '1994-10-27', '1994-08-28', '1994-11-17', 'NONE', 'MAIL', 'le furiously even f'),
 (1870, 105025, 5026, 2, '24.00', '24720.48', '0.03', '0.06', 'A', 'F', '1994-08-04', '1994-08-25', '1994-08-20', 'DELIVER IN PERSON', 'REG AIR', 'ke silently ca'),
@@ -3647,8 +3614,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (2189, 4637, 9638, 2, '8.00', '12333.04', '0.01', '0.00', 'N', 'O', '1997-07-04', '1997-05-15', '1997-07-19', 'DELIVER IN PERSON', 'REG AIR', 'egular instructions. careful'),
 (2189, 131968, 4482, 3, '13.00', '25999.48', '0.00', '0.07', 'N', 'O', '1997-06-24', '1997-05-10', '1997-07-16', 'COLLECT COD', 'AIR', 'foxes are above th'),
 (2189, 173359, 911, 4, '14.00', '20052.90', '0.04', '0.00', 'N', 'O', '1997-06-15', '1997-05-18', '1997-07-13', 'COLLECT COD', 'RAIL', 'ly special foxes shall sl'),
-(2189, 37006, 2013, 5, '16.00', '15088.00', '0.01', '0.03', 'N', 'O', '1997-07-05', '1997-05-08', '1997-07-15', 'COLLECT COD', 'FOB', 'xes. accou');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(2189, 37006, 2013, 5, '16.00', '15088.00', '0.01', '0.03', 'N', 'O', '1997-07-05', '1997-05-08', '1997-07-15', 'COLLECT COD', 'FOB', 'xes. accou'),
 (2190, 146793, 6794, 1, '26.00', '47834.54', '0.05', '0.05', 'N', 'O', '1996-11-03', '1996-10-10', '1996-11-18', 'NONE', 'REG AIR', 'c deposits '),
 (2190, 147860, 7861, 2, '25.00', '47696.50', '0.07', '0.07', 'N', 'O', '1996-10-21', '1996-12-01', '1996-11-14', 'DELIVER IN PERSON', 'REG AIR', 'ites cajole. sl'),
 (2191, 96350, 1369, 1, '27.00', '36351.45', '0.03', '0.00', 'R', 'F', '1994-01-01', '1993-12-26', '1994-01-03', 'DELIVER IN PERSON', 'MAIL', 'ts haggle: slyly special'),
@@ -3948,8 +3914,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (2505, 197014, 2053, 3, '10.00', '11110.10', '0.10', '0.08', 'R', 'F', '1993-01-17', '1992-12-23', '1993-02-07', 'NONE', 'AIR', 'ly final requests. blithely even idea'),
 (2505, 6754, 6755, 4, '23.00', '38197.25', '0.09', '0.07', 'A', 'F', '1993-01-19', '1992-12-27', '1993-02-06', 'TAKE BACK RETURN', 'REG AIR', 'elets. carefully special'),
 (2505, 100105, 7636, 5, '42.00', '46414.20', '0.10', '0.07', 'R', 'F', '1992-11-20', '1993-01-03', '1992-11-23', 'TAKE BACK RETURN', 'MAIL', 'hs wake to the final plate'),
-(2505, 55780, 8286, 6, '12.00', '20829.36', '0.09', '0.04', 'A', 'F', '1992-11-08', '1993-01-07', '1992-11-20', 'NONE', 'REG AIR', ' accounts ');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(2505, 55780, 8286, 6, '12.00', '20829.36', '0.09', '0.04', 'A', 'F', '1992-11-08', '1993-01-07', '1992-11-20', 'NONE', 'REG AIR', ' accounts '),
 (2505, 84699, 9716, 7, '12.00', '20204.28', '0.00', '0.03', 'R', 'F', '1992-12-28', '1992-12-06', '1993-01-19', 'NONE', 'SHIP', '. ideas wake. requests wake furiously si'),
 (2506, 131390, 1391, 1, '5.00', '7106.95', '0.08', '0.04', 'A', 'F', '1992-04-19', '1992-04-07', '1992-05-01', 'NONE', 'FOB', 'ily ironic ideas slee'),
 (2506, 58571, 1077, 2, '13.00', '19884.41', '0.00', '0.05', 'R', 'F', '1992-04-29', '1992-03-31', '1992-05-05', 'DELIVER IN PERSON', 'MAIL', 'l requests nag ironic, '),
@@ -4249,8 +4214,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (2798, 120617, 3130, 5, '29.00', '47490.69', '0.06', '0.05', 'R', 'F', '1992-06-16', '1992-07-12', '1992-07-08', 'COLLECT COD', 'RAIL', 'ffily busy pa'),
 (2799, 124385, 6898, 1, '34.00', '47918.92', '0.01', '0.00', 'R', 'F', '1993-12-13', '1993-12-18', '1993-12-30', 'TAKE BACK RETURN', 'SHIP', 'nal accounts haggle care'),
 (2799, 131950, 4464, 2, '10.00', '19819.50', '0.03', '0.01', 'A', 'F', '1993-12-05', '1993-12-29', '1993-12-13', 'TAKE BACK RETURN', 'TRUCK', 'special theodolites. quickly final '),
-(2799, 83378, 5887, 3, '2.00', '2722.74', '0.06', '0.06', 'R', 'F', '1993-12-12', '1993-12-15', '1994-01-03', 'TAKE BACK RETURN', 'AIR', ' pinto beans. asymptotes are above the flu');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(2799, 83378, 5887, 3, '2.00', '2722.74', '0.06', '0.06', 'R', 'F', '1993-12-12', '1993-12-15', '1994-01-03', 'TAKE BACK RETURN', 'AIR', ' pinto beans. asymptotes are above the flu'),
 (2824, 115880, 5881, 1, '2.00', '3791.76', '0.06', '0.01', 'N', 'O', '1997-04-13', '1997-02-25', '1997-05-05', 'DELIVER IN PERSON', 'AIR', 'r, even ideas wake special, express requ'),
 (2824, 192629, 5149, 2, '15.00', '25824.30', '0.10', '0.04', 'N', 'O', '1997-05-05', '1997-04-14', '1997-05-12', 'DELIVER IN PERSON', 'TRUCK', 'al courts wake furiously qui'),
 (2824, 112911, 445, 3, '32.00', '61565.12', '0.04', '0.05', 'N', 'O', '1997-04-24', '1997-04-09', '1997-05-06', 'NONE', 'FOB', 'fluffily ironic foxes across the sl'),
@@ -4549,8 +4513,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (3115, 90527, 528, 1, '2.00', '3035.04', '0.05', '0.08', 'R', 'F', '1995-03-08', '1995-05-22', '1995-03-13', 'NONE', 'MAIL', 'ecial ideas nag carefully along the fi'),
 (3115, 84089, 6598, 2, '8.00', '8584.64', '0.00', '0.08', 'R', 'F', '1995-04-06', '1995-05-15', '1995-04-07', 'DELIVER IN PERSON', 'TRUCK', 'c ideas eat furiously. furiou'),
 (3115, 78848, 8849, 3, '34.00', '62112.56', '0.08', '0.00', 'R', 'F', '1995-03-23', '1995-04-26', '1995-04-18', 'COLLECT COD', 'AIR', 'packages. escapades was quick'),
-(3115, 182411, 7448, 4, '17.00', '25387.97', '0.02', '0.07', 'A', 'F', '1995-05-21', '1995-04-25', '1995-06-15', 'DELIVER IN PERSON', 'RAIL', 'silent requests haggle caref');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(3115, 182411, 7448, 4, '17.00', '25387.97', '0.02', '0.07', 'A', 'F', '1995-05-21', '1995-04-25', '1995-06-15', 'DELIVER IN PERSON', 'RAIL', 'silent requests haggle caref'),
 (3116, 38582, 3589, 1, '19.00', '28891.02', '0.00', '0.00', 'N', 'O', '1998-04-24', '1998-05-26', '1998-05-06', 'TAKE BACK RETURN', 'REG AIR', ' packages nag furiously about th'),
 (3116, 36798, 1805, 2, '24.00', '41634.96', '0.10', '0.06', 'N', 'O', '1998-05-26', '1998-05-23', '1998-06-11', 'COLLECT COD', 'TRUCK', 'ost about the slyl'),
 (3116, 62991, 5498, 3, '43.00', '84021.57', '0.04', '0.07', 'N', 'O', '1998-06-05', '1998-05-23', '1998-06-09', 'TAKE BACK RETURN', 'AIR', 'osits print '),
@@ -4849,8 +4812,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (3439, 68855, 3868, 1, '46.00', '83897.10', '0.06', '0.00', 'R', 'F', '1992-07-08', '1992-06-16', '1992-07-20', 'TAKE BACK RETURN', 'AIR', 'gular deposits sleep blithely regular req'),
 (3439, 37305, 4815, 2, '24.00', '29815.20', '0.03', '0.04', 'R', 'F', '1992-05-30', '1992-06-15', '1992-06-25', 'COLLECT COD', 'TRUCK', 'into beans boost carefull'),
 (3439, 179469, 9470, 3, '21.00', '32517.66', '0.03', '0.02', 'R', 'F', '1992-06-07', '1992-05-21', '1992-06-10', 'TAKE BACK RETURN', 'SHIP', 'side of the'),
-(3464, 164269, 9302, 1, '26.00', '34664.76', '0.10', '0.05', 'R', 'F', '1995-05-05', '1995-05-08', '1995-05-12', 'TAKE BACK RETURN', 'AIR', ' requests eat slyly ab');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(3464, 164269, 9302, 1, '26.00', '34664.76', '0.10', '0.05', 'R', 'F', '1995-05-05', '1995-05-08', '1995-05-12', 'TAKE BACK RETURN', 'AIR', ' requests eat slyly ab'),
 (3464, 66203, 8710, 2, '29.00', '33906.80', '0.02', '0.01', 'R', 'F', '1995-04-25', '1995-05-03', '1995-04-28', 'DELIVER IN PERSON', 'RAIL', 'long the pending instructions. ironic '),
 (3464, 70886, 5901, 3, '1.00', '1856.88', '0.09', '0.06', 'R', 'F', '1995-04-08', '1995-05-12', '1995-05-02', 'COLLECT COD', 'FOB', '. sometimes ironic packages haggle fu'),
 (3464, 172046, 4564, 4, '33.00', '36895.32', '0.05', '0.01', 'N', 'O', '1995-06-26', '1995-05-20', '1995-07-14', 'TAKE BACK RETURN', 'AIR', 'onic account'),
@@ -5149,7 +5111,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (3756, 110378, 5401, 5, '7.00', '9718.59', '0.02', '0.03', 'R', 'F', '1994-03-16', '1994-03-01', '1994-04-10', 'COLLECT COD', 'REG AIR', 'eodolites. fluffily regu'),
 (3757, 135361, 388, 1, '7.00', '9774.52', '0.09', '0.03', 'A', 'F', '1993-03-08', '1993-03-07', '1993-03-13', 'DELIVER IN PERSON', 'TRUCK', ' haggle carefully '),
 (3758, 162763, 2764, 1, '23.00', '41992.48', '0.02', '0.04', 'A', 'F', '1994-09-26', '1994-11-13', '1994-09-28', 'DELIVER IN PERSON', 'RAIL', 'efully regul');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+INSERT INTO lineitem (l_orderkey, l_partkey, l_sppkey, l_linenumber, l_quantity, l_extendedprice , l_discount, l_tax, l_returnflag, l_linestatus, l_shipdate, l_commitdate, l_receiptdate, l_shipinstruct, l_shipmode, l_comment) VALUES
 (3758, 157603, 7604, 2, '50.00', '83030.00', '0.09', '0.03', 'R', 'F', '1995-01-15', '1994-11-27', '1995-02-05', 'DELIVER IN PERSON', 'AIR', 'ic requests. fluffily brave dependenc'),
 (3758, 33100, 610, 3, '2.00', '2066.20', '0.00', '0.01', 'R', 'F', '1994-12-20', '1994-12-05', '1994-12-26', 'DELIVER IN PERSON', 'AIR', 'olites sleep carefully along '),
 (3758, 105345, 5346, 4, '25.00', '33758.50', '0.00', '0.04', 'A', 'F', '1994-11-13', '1994-12-16', '1994-11-17', 'TAKE BACK RETURN', 'SHIP', 'r deposits along the closely final pinto be'),
@@ -5450,8 +5412,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (4077, 193682, 8721, 3, '6.00', '10654.08', '0.06', '0.01', 'N', 'O', '1997-09-04', '1997-09-30', '1997-09-15', 'COLLECT COD', 'TRUCK', 'ades haggle regularly slyly i'),
 (4077, 198212, 732, 4, '32.00', '41926.72', '0.07', '0.01', 'N', 'O', '1997-10-17', '1997-10-01', '1997-10-30', 'NONE', 'RAIL', 'ts haggle. ironic, even sentiments a'),
 (4077, 146260, 1289, 5, '40.00', '52250.40', '0.03', '0.00', 'N', 'O', '1997-10-08', '1997-09-30', '1997-10-11', 'NONE', 'TRUCK', 'ithely ironic foxes can sl'),
-(4078, 40566, 3071, 1, '30.00', '45196.80', '0.07', '0.01', 'N', 'O', '1997-06-04', '1997-04-30', '1997-06-08', 'NONE', 'RAIL', 'lithely ironic requests');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(4078, 40566, 3071, 1, '30.00', '45196.80', '0.07', '0.01', 'N', 'O', '1997-06-04', '1997-04-30', '1997-06-08', 'NONE', 'RAIL', 'lithely ironic requests'),
 (4078, 189876, 7431, 2, '36.00', '70771.32', '0.03', '0.04', 'N', 'O', '1997-06-23', '1997-04-29', '1997-06-30', 'COLLECT COD', 'FOB', 'uses cajole over the slyly special dug'),
 (4078, 36615, 4125, 3, '25.00', '38790.25', '0.01', '0.07', 'N', 'O', '1997-06-17', '1997-06-11', '1997-07-10', 'COLLECT COD', 'SHIP', 'uffily final deposits. fur'),
 (4079, 198711, 6269, 1, '6.00', '10858.26', '0.08', '0.04', 'N', 'O', '1997-10-25', '1997-10-08', '1997-10-31', 'DELIVER IN PERSON', 'TRUCK', 'even instructions'),
@@ -5751,8 +5712,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (4393, 41604, 4109, 1, '21.00', '32457.60', '0.02', '0.02', 'R', 'F', '1995-03-06', '1995-04-10', '1995-03-29', 'NONE', 'RAIL', 'e carefully ironic ideas-- thin, un'),
 (4393, 31780, 9290, 2, '30.00', '51353.40', '0.01', '0.04', 'A', 'F', '1995-03-21', '1995-05-23', '1995-04-13', 'DELIVER IN PERSON', 'REG AIR', 'structions sleep'),
 (4393, 124650, 4651, 3, '14.00', '23445.10', '0.01', '0.08', 'N', 'F', '1995-05-29', '1995-04-12', '1995-06-20', 'TAKE BACK RETURN', 'REG AIR', 'uffily express'),
-(4393, 188312, 8313, 4, '10.00', '14003.10', '0.06', '0.00', 'A', 'F', '1995-03-26', '1995-04-10', '1995-04-01', 'COLLECT COD', 'MAIL', 'ites after the pending, ironic idea');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(4393, 188312, 8313, 4, '10.00', '14003.10', '0.06', '0.00', 'A', 'F', '1995-03-26', '1995-04-10', '1995-04-01', 'COLLECT COD', 'MAIL', 'ites after the pending, ironic idea'),
 (4393, 147175, 4718, 5, '26.00', '31776.42', '0.05', '0.07', 'A', 'F', '1995-04-09', '1995-04-06', '1995-04-16', 'TAKE BACK RETURN', 'TRUCK', 'ake furiously. blithely specia'),
 (4393, 164704, 4705, 6, '40.00', '70748.00', '0.03', '0.01', 'A', 'F', '1995-03-26', '1995-05-20', '1995-04-09', 'NONE', 'FOB', '. slyly regular accounts wake carefully. '),
 (4393, 165454, 5455, 7, '30.00', '45583.50', '0.00', '0.04', 'A', 'F', '1995-06-03', '1995-04-27', '1995-06-16', 'DELIVER IN PERSON', 'FOB', 'he carefully fi'),
@@ -6053,8 +6013,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (4712, 137004, 2031, 2, '27.00', '28107.00', '0.04', '0.07', 'A', 'F', '1993-04-04', '1993-03-22', '1993-04-13', 'NONE', 'FOB', 'final accounts cajole according to th'),
 (4712, 18945, 1447, 3, '34.00', '63373.96', '0.10', '0.06', 'A', 'F', '1993-05-30', '1993-04-13', '1993-06-14', 'NONE', 'REG AIR', '. deposits along'),
 (4713, 151453, 3969, 1, '26.00', '39115.70', '0.02', '0.07', 'N', 'O', '1996-11-07', '1996-12-14', '1996-12-02', 'DELIVER IN PERSON', 'TRUCK', 'ic instructions. evenly express '),
-(4713, 59699, 4710, 2, '3.00', '4976.07', '0.02', '0.08', 'N', 'O', '1997-01-06', '1996-11-13', '1997-01-22', 'TAKE BACK RETURN', 'REG AIR', 'al, special i');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(4713, 59699, 4710, 2, '3.00', '4976.07', '0.02', '0.08', 'N', 'O', '1997-01-06', '1996-11-13', '1997-01-22', 'TAKE BACK RETURN', 'REG AIR', 'al, special i'),
 (4713, 155937, 5938, 3, '47.00', '93667.71', '0.03', '0.00', 'N', 'O', '1997-01-10', '1996-11-04', '1997-02-04', 'TAKE BACK RETURN', 'AIR', 'n sheaves are carefully spe'),
 (4713, 27399, 7400, 4, '42.00', '55708.38', '0.07', '0.02', 'N', 'O', '1997-01-16', '1996-11-05', '1997-01-27', 'TAKE BACK RETURN', 'FOB', 'lent packages print acco'),
 (4714, 67565, 7566, 1, '43.00', '65900.08', '0.03', '0.06', 'N', 'O', '1998-05-18', '1998-06-17', '1998-05-24', 'COLLECT COD', 'AIR', 'even deposits do haggle. express deposits '),
@@ -6352,8 +6311,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (5000, 121255, 6280, 7, '17.00', '21696.25', '0.07', '0.06', 'R', 'F', '1994-10-14', '1994-12-21', '1994-10-22', 'COLLECT COD', 'AIR', ' final deposi'),
 (5001, 127283, 7284, 1, '28.00', '36687.84', '0.10', '0.00', 'N', 'O', '1997-03-01', '1997-03-14', '1997-03-12', 'COLLECT COD', 'AIR', 'ackages. regular, re'),
 (5002, 158464, 980, 1, '22.00', '33494.12', '0.10', '0.00', 'A', 'F', '1994-02-26', '1994-02-27', '1994-03-02', 'COLLECT COD', 'FOB', ' regular sentiments h'),
-(5002, 96454, 8964, 2, '22.00', '31909.90', '0.01', '0.02', 'R', 'F', '1994-04-01', '1994-01-26', '1994-04-13', 'COLLECT COD', 'MAIL', 'le carefully upon the slyly pending theod');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(5002, 96454, 8964, 2, '22.00', '31909.90', '0.01', '0.02', 'R', 'F', '1994-04-01', '1994-01-26', '1994-04-13', 'COLLECT COD', 'MAIL', 'le carefully upon the slyly pending theod'),
 (5002, 99814, 7342, 3, '38.00', '68924.78', '0.01', '0.07', 'A', 'F', '1994-03-19', '1994-01-31', '1994-04-09', 'DELIVER IN PERSON', 'FOB', 'he, final pack'),
 (5002, 163726, 3727, 4, '47.00', '84116.84', '0.06', '0.07', 'R', 'F', '1994-03-17', '1994-01-24', '1994-04-16', 'COLLECT COD', 'TRUCK', 'ructions doze caref'),
 (5002, 138544, 6084, 5, '21.00', '33233.34', '0.06', '0.05', 'A', 'F', '1994-01-29', '1994-01-26', '1994-02-21', 'COLLECT COD', 'SHIP', 'ages poach blithely above the final c'),
@@ -6650,8 +6608,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (5292, 115838, 861, 6, '50.00', '92691.50', '0.03', '0.04', 'A', 'F', '1993-04-30', '1993-04-07', '1993-05-17', 'TAKE BACK RETURN', 'FOB', 'ular ideas. furiously ironic e'),
 (5292, 74036, 4037, 7, '29.00', '29290.87', '0.07', '0.05', 'R', 'F', '1993-03-16', '1993-03-22', '1993-03-27', 'NONE', 'TRUCK', 'bout the pending requests'),
 (5293, 107817, 2838, 1, '4.00', '7299.24', '0.03', '0.05', 'A', 'F', '1995-06-02', '1995-04-01', '1995-06-15', 'NONE', 'MAIL', ' along the careful'),
-(5293, 71761, 6776, 2, '8.00', '13862.08', '0.07', '0.06', 'A', 'F', '1995-05-23', '1995-04-21', '1995-06-04', 'TAKE BACK RETURN', 'SHIP', 'eep slyly express asymptot');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(5293, 71761, 6776, 2, '8.00', '13862.08', '0.07', '0.06', 'A', 'F', '1995-05-23', '1995-04-21', '1995-06-04', 'TAKE BACK RETURN', 'SHIP', 'eep slyly express asymptot'),
 (5293, 75839, 8347, 3, '19.00', '34481.77', '0.06', '0.05', 'A', 'F', '1995-03-20', '1995-03-31', '1995-04-06', 'NONE', 'RAIL', 'ke slyly express packages. si'),
 (5293, 14388, 1892, 4, '21.00', '27349.98', '0.10', '0.08', 'A', 'F', '1995-04-03', '1995-03-28', '1995-04-20', 'DELIVER IN PERSON', 'RAIL', 'he fluffily r'),
 (5293, 9204, 9205, 5, '35.00', '38962.00', '0.09', '0.01', 'R', 'F', '1995-04-21', '1995-03-16', '1995-05-19', 'TAKE BACK RETURN', 'MAIL', 'ithely bold courts according to the i'),
@@ -6948,10 +6905,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (5581, 3523, 3524, 1, '22.00', '31383.44', '0.04', '0.04', 'N', 'O', '1996-09-24', '1996-10-19', '1996-10-18', 'COLLECT COD', 'FOB', ' instructions. pending pack'),
 (5581, 4798, 2299, 2, '48.00', '81733.92', '0.00', '0.03', 'N', 'O', '1996-09-12', '1996-11-28', '1996-09-24', 'COLLECT COD', 'FOB', 'ecial, even dolphins. carefully express t'),
 (5581, 34064, 1574, 3, '42.00', '41918.52', '0.07', '0.05', 'N', 'O', '1996-11-11', '1996-11-17', '1996-11-28', 'DELIVER IN PERSON', 'MAIL', 'y final Tiresias'),
-(5582, 188253, 5808, 1, '13.00', '17436.25', '0.09', '0.08', 'R', 'F', '1993-10-17', '1993-11-20', '1993-10-21', 'DELIVER IN PERSON', 'FOB', 'ial foxes. furiously even excuses');
-
-
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(5582, 188253, 5808, 1, '13.00', '17436.25', '0.09', '0.08', 'R', 'F', '1993-10-17', '1993-11-20', '1993-10-21', 'DELIVER IN PERSON', 'FOB', 'ial foxes. furiously even excuses'),
 (5582, 155649, 8165, 2, '25.00', '42616.00', '0.05', '0.01', 'A', 'F', '1993-08-30', '1993-10-26', '1993-09-10', 'TAKE BACK RETURN', 'SHIP', 'uests. ironically bold packages breach sl'),
 (5582, 189709, 9710, 3, '44.00', '79142.80', '0.06', '0.02', 'A', 'F', '1993-10-04', '1993-10-27', '1993-10-29', 'DELIVER IN PERSON', 'MAIL', 'y idle deposits. unusual, final req'),
 (5582, 24943, 7446, 4, '13.00', '24283.22', '0.09', '0.04', 'R', 'F', '1993-11-17', '1993-10-13', '1993-12-04', 'DELIVER IN PERSON', 'REG AIR', 'uternes. regular excus'),
@@ -7249,8 +7203,7 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (5868, 108319, 8320, 2, '7.00', '9291.17', '0.08', '0.01', 'A', 'F', '1993-04-12', '1993-06-09', '1993-04-24', 'TAKE BACK RETURN', 'TRUCK', 'stealthy orbits. quickly '),
 (5868, 109172, 9173, 3, '11.00', '12992.87', '0.06', '0.02', 'A', 'F', '1993-04-29', '1993-06-01', '1993-05-16', 'COLLECT COD', 'AIR', 's. final platelets was '),
 (5868, 50484, 8000, 4, '9.00', '12910.32', '0.05', '0.08', 'A', 'F', '1993-06-29', '1993-06-20', '1993-07-27', 'DELIVER IN PERSON', 'REG AIR', 'y around the carefully speci'),
-(5869, 47343, 7344, 1, '12.00', '15484.08', '0.01', '0.07', 'R', 'F', '1992-06-05', '1992-07-08', '1992-06-27', 'TAKE BACK RETURN', 'FOB', 'ironic account');
-INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(5869, 47343, 7344, 1, '12.00', '15484.08', '0.01', '0.07', 'R', 'F', '1992-06-05', '1992-07-08', '1992-06-27', 'TAKE BACK RETURN', 'FOB', 'ironic account'),
 (5869, 80150, 151, 2, '31.00', '35034.65', '0.07', '0.00', 'A', 'F', '1992-08-12', '1992-07-14', '1992-08-13', 'DELIVER IN PERSON', 'SHIP', 'lyly silent deposits. unusual p'),
 (5869, 72054, 2055, 3, '9.00', '9234.45', '0.10', '0.03', 'A', 'F', '1992-06-28', '1992-06-06', '1992-07-18', 'NONE', 'SHIP', ' special, expr'),
 (5869, 3736, 1237, 4, '3.00', '4919.19', '0.05', '0.02', 'A', 'F', '1992-05-29', '1992-06-23', '1992-06-10', 'TAKE BACK RETURN', 'RAIL', 'nts. slyly bold foxes according to t'),
@@ -7385,6 +7338,3 @@ INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, 
 (5996, 101235, 1236, 6, '41.00', '50685.43', '0.10', '0.06', 'A', 'F', '1994-08-17', '1994-07-24', '1994-09-01', 'DELIVER IN PERSON', 'FOB', ' print furiously except the special, ');
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
