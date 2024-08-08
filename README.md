@@ -1,4 +1,4 @@
-# TPC-H Benchmark helper for MySQL and MariaDB
+# TPC-H Benchmark helper for PostgreSql
 
 
 The scripts hosted below are for implementing the TPC-H database, sample data and queries to PostgreSql Database under Linux.
